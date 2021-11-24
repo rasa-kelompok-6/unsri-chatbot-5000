@@ -1,0 +1,50 @@
+# RULES : Masukin aturan ketika user ngomong ini maka respon yang diberikan Chatbot adalah ini
+
+version: "2.0"
+
+rules:
+
+- rule: Jawab Salam setiap user mengatakan salam
+  steps:
+  - intent: salam
+  - action: utter_salam
+
+# - rule: Jawab Terimakasih setiap user menjawab selesai
+#   steps:
+#   - intent: selesai
+#   - action: utter_terimakasih
+
+- rule: Memberikan list apa saja yang bisa diutarakan
+  steps:
+  - intent: help
+  - action: utter_tanya_list_command
+
+- rule: Akhiri Percakapan
+  steps:
+  - intent: akhiri
+  - action: utter_terimakasih
+
+- rule: Berkata 'Saya adalah Bot' setiap user bertanya siapa saya?
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+
+- rule: Say current time
+  steps:
+  - intent: ask_time
+  - action: action_get_time
+
+- rule : Reset Slot
+  steps:
+  - intent: reset
+  - action: action_reset
+
+- rule: Say name
+  steps:
+  - intent: ask_name
+  - action: utter_say_name
+
+- rule: Get Data Siswa
+  steps:
+  - intent: ask_data
+  - action: action_get_data

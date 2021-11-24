@@ -1,0 +1,331 @@
+version: '2.0'
+config:
+  store_entities_as_slots: true
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+intents:
+- reset:
+    use_entities: true
+- ask_time:
+    use_entities: true
+- ask_name:
+    use_entities: true
+- give_name:
+    use_entities: true
+- ask_time:
+    use_entities: true
+- salam:
+    use_entities: true
+- help:
+    use_entities: true
+- akhiri:
+    use_entities: true
+- tanya_bentuk_putus_studi:
+    use_entities: true
+- tanya_bentuk_putus_studi_undur:
+    use_entities: true
+- tanya_bentuk_putus_studi_do:
+    use_entities: true
+- tanya_bentuk_putus_studi_diberhentikan:
+    use_entities: true
+- tanya_pindah_unsri_Ke_ptn_lain:
+    use_entities: true
+- tanya_larangan:
+    use_entities: true
+- tanya_ketentuan_pencegahan_plagiasi:
+    use_entities: true
+- tanya_stop_out:
+    use_entities: true
+- tanya_ketentuan_bagi_mahasiswa_pindahan:
+    use_entities: true
+- tanya_hak_mahasiswa:
+    use_entities: true
+- tanya_peringatan_dan_sanksi:
+    use_entities: true
+- tanya_predikat_kelulusan:
+    use_entities: true
+- tanya_kriteria_putus_studi_doktor:
+    use_entities: true
+- tanya_pindah_di_dalam_unsri:
+    use_entities: true
+- tanya_pindah_pt_lain_ke_unsri:
+    use_entities: true
+- tanya_kewajiban:
+    use_entities: true
+- tanya_persyaratan_yudisium:
+    use_entities: true
+- bot_challenge:
+    use_entities: true
+- selesai:
+    use_entities: true
+entities: 
+- name
+slots:
+  name:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+responses:
+  utter_say_name:
+  - condition:
+    - name: name
+      type: slot
+      value: null
+    text: Saya belum kenal namamu :(
+
+  - text: Hai, {name}!
+  - text: Nama kamu {name}!
+  - text: Helo {name}!
+  utter_salam:
+  - text: |
+      Hallo Selamat Datang di FAQ Pedoman Akademik UNSRI 2021.
+
+      Ada yang bisa saya bantu? Ketik help untuk melihat list pertanyaan yang bisa anda ajukan
+  utter_tanya_list_command:
+  - text: |
+      Pertanyaan tentang ketentuan UNSRI yang dapat anda ajukan adalah :
+      - Tentang keluar atau putus studi dari Universitas Srijiwaya
+      - Tentang pindah untuk mahasiswa Universitas Sriwijaya
+      - Larangan-larangan pada Universitas Srijiwaya
+      - Tentang plagiasi pada Universitas Sriwijaya
+      - Tentang Stop-out di Universitas Sriwijaya
+      - Tentang ketentuan mahasiswa pindahan
+      - Tentang hak mahasiswa Universitas Sriwijaya
+      - Tentang Peringatan dan Sanski di Universitas Sriwijaya
+      - Tentang Predikat Kelulusan
+      - Tentang Kriteria putus studi doktor
+      - Tentang Pindah di dalam Universitas Sriwijaya
+      - Tentang Pindah dari perguruan tinggi lain ke Universitas Sriwijaya
+      - Tentang kewajiban mahasiswa Universitas Sriwijaya
+      - Tentang persyaratan Yudisium
+  utter_bantu_lagi:
+  - condition:
+    - name: name
+      type: slot
+      value: null
+    text: Ada yang bisa saya bantu lagi?
+
+  - text: Ada yang bisa saya bantu lagi, {name}?
+  - text: Ada lagi, {name}?
+  - text: Gimana {name}, apa sudah cukup?
+
+  utter_jawab_bentuk_putus_studi:
+  - text: |
+      Mahasiswa yang keluar atau putus studi dari Universitas Sriwijaya sebelum lulus dapat merupakan :
+       1) Mahasiswa yang mengundurkan diri.
+       2) Mahasiswa yang dinyatakan putus studi (drop out).
+       3) Mahasiswa yang diberhentikan/dikeluarkan dari Universitas Sriwijaya.
+       Untuk deskripsi selengkapnya, silahkan Anda pilih putus studi bagian apa?
+  utter_jawab_bentuk_putus_studi_undur:
+  - text: |
+      Bentuk Putus Studi untuk Mahasiswa yang Mengundurkan Diri dari Universitas Sriwijaya adalah :
+       a. Mahasiswa yang mengajukan permohonan pengunduran diri tertulis kepada Dekan Fakultas/Direktur Program Pascasarjana dengan tembusan ke koordinator program studi karena alasan masing-masing termasuk sakit berkepanjangan.
+       b. Mahasiswa yang mengundurkan diri ditetapkan dengan surat keputusan Rektor Universitas Sriwijaya berdasarkan usulan dari Dekan Fakultas/Direktur Program Pascasarjana.
+       Mahasiswa yang keluar dari Universitas Sriwijaya karena mengundurkan diri, tidak dapat diterima kembali untuk menjadi mahasiswa di Universitas Sriwijaya.
+  utter_jawab_bentuk_putus_studi_do:
+  - text: |
+      Bentuk Putus Studi untuk Mahasiswa yang dinyatakan Putus Studi (Drop Out) dari Universitas Sriwijaya adalah :
+       a. Mahasiswa yang memenuhi kriteria putus studi sesuai ketentuan.
+       b. Mahasiswa yang dinyatakan putus studi (drop out) ditetapkan secara otomatis melalui sistem Informasi Teknologi (IT) dan dapat juga dengan surat keputusan Rektor Universitas Sriwijaya.
+       Mahasiswa yang keluar dari Universitas Sriwijaya karena putus studi (drop out), tidak dapat diterima kembali untuk menjadi mahasiswa di Universitas Sriwijaya.
+  utter_jawab_bentuk_putus_studi_diberhentikan:
+  - text: |
+      Bentuk Putus Studi untuk Mahasiswa yang Diberhentikan/dikeluarkan dari Universitas Sriwijaya adalah :
+       a. Mahasiswa yang dinyatakan berhenti dari Universitas Sriwijaya karena melanggar Etika Akademik, melakukan perbuatan tercela melanggar Norma & Moral, mencemarkan nama baik Universitas Sriwijaya, membuat keonaran memprovokasi dan menghasut dalam kampus, terlibat Narkoba, terlibat perbuatan kriminal dan asusila, melakukan pelanggaran berat berdasarkan ketentuan-ketentuan yang ditetapkan di bidang kemahasiswaan Universitas Sriwijaya.
+       b. Mahasiswa yang dinyatakan dikeluarkan (drop out) ditetapkan secara otomatis melalui sistem Informasi Teknologi (IT) dan dapat juga dengan surat keputusan Rektor Universitas Sriwijaya.
+       Mahasiswa yang keluar dari Universitas Sriwijaya karena diberhentikan/dikeluarkan, tidak dapat diterima kembali untuk menjadi mahasiswa di Universitas Sriwijaya.
+  utter_jawab_pindah_unsri_Ke_ptn_lain:
+  - text: |
+      Perpindahan dapat dilakukan oleh mahasiswa dengan memenuhi ketentuan sebagai berikut :
+       a. Mahasiswa berstatus aktif dan terdaftar pada semester yang sedang berjalan dan sedikitnya telah mengikuti kegiatan akademik selama 2 semester.
+       b. Mahasiswa mengajukan permohonan pindah ke perguruan tinggi lain kepada koordinator prodi yang diteruskan kepada Dekan Fakultas/Direktur Program Pascasarjana untuk diteruskan kepada Rektor.
+       c. Mahasiswa yang telah disetujui pengunduran dirinya dari Universitas Sriwijaya untuk pindah ke perguruan tinggi lain tidak dapat pindah kembali atau mendaftar kembali untuk menjadi mahasiswa Universitas Sriwijaya.
+       d. Mahasiswa yang telah memasuki batas akhir masa studi di Universitas Sriwijaya, pengusulan perpindahan/pengunduran diri hanya dapat dilakukan paling lambat 3 bulan sebelum berakhirnya masa studi di Universitas Sriwijaya.
+  utter_jawab_larangan:
+  - text: |
+      Mahasiswa dilarang :
+       1. Melakukan perbuatan/aktivitas/provokasi yang berpotensi dapat menimbulkan hambatan terhadap kegiatan akademik maupun kekacauan dalam kampus termasuk menyalahgunakan dan memasang lambang/atribut terlarang di lingkungan kampus Universitas Sriwijaya.
+       2. Melakukan pelanggaran ketentuan akademik berupa pelanggaran etika penulisan atau tindakan pidana plagiarisme/duplikasi dalam kegiatan akademik maupun riset/penelitian untuk skripsi/thesis/disertasi atau publikasi di Universitas Sriwijaya.
+       3. Mengganggu atau menghalangi kegiatan akademik maupun kegiatan lainnya, baik yang dilakukan secara struktural (organisasi) maupun non-struktural.
+       4. Melakukan perbuatan yang melanggar etika, moral, pelecehan seksual, perudungan (bullying) dan anarkis baik yang dilakukan secara perorangan, struktural (organisasi) maupun non-struktural.
+       5. Melakukan tindakan kriminal/mencuri dan berkelahi sehingga membuat kerusuhan.
+       6. Melakukan tindakan propaganda, provokasi atau menghasut masyarakat.
+       7. Membuat kegiatan yang melanggar ketentuan dan tata tertib yang berlaku di Universitas/Fakultas/Program Studi.
+       8. Melakukan Perjokian atau meminta seseorang melakukan Perjokian untuk kegiatan ujian/pelatihan yang dilakukan oleh Universitas Sriwijaya.
+       9. Terlibat sebagai pengguna, bandar, penyedia, pemberi, kurir, fasilitasi, ataupun penganjur penggunaan narkoba/nafza, minum-minuman keras atau zat adiktif lainnya baik didalam maupun diluar kampus Universitas Sriwijaya. Pemeriksaan terhadap penggunaan/kepemilikan/kesediaan narkoba/nafza akan dilakukan secara periodik ataupun check spot secara mendadak.
+       10. Mahasiswa Universitas Sriwijaya dilarang menjadi anggota atau simpatisan :
+       a. Organisasi yang bersifat makar ataupun organisasi yang mengganggu/mengancam keselamatan negara kesatuan Republik Indonesia.
+       b. Organisasi yang melanggar hukum agama dan atau norma susila seperti organisasi penyimpangan agama/sekte, organisasi yang mendukung/melakukan tindakan kekerasan/kekejaman, organisasi perbuatan seksual menyimpang, termasuk organisasi yang terkait perilaku Lesbian, Gay, Biseksual, dan Transgender (LGBT).
+  utter_jawab_ketentuan_pencegahan_plagiasi:
+  - text: |
+      Dalam upaya mencegah tindakan plagiasi, maka sebelum mahasiswa yudisium, naskah proyek akhir/skripsi/tesis/disertasi dan naskah ilmiah untuk publikasi harus melalui tahap pemeriksaan kesamaan/kemiripan (similarity checking).
+       Adapun ketentuan akademik yang berlaku adalah sebagai berikut :
+       a. Pemeriksaan kesamaan/kemiripan naskah (similarity checking) menggunakan aplikasi Ithenticate dan/atau Turnitin yang dilakukan sebelum yudisium.
+       b. Bagian metodologi penelitian skripsi/tesis/disertasi yang merupakan prosedur baku pengujian/pengambilan data dan pengolahan statistika diuraikan pada bagian lampiran skripsi/tesis/disertasi, sehingga tidak termasuk bagian yang diperiksa kesamaan/kemiripan naskahnya. Pembimbing/promotor memastikan integritas akademik pada bagian ini.
+       c. Tingkat kemiripan/kesamaan untuk skripsi/tesis/disertasi maksimum 20%. Apabila tingkat kemiripan/kesamaan lebih dari 20%, maka mahasiswa harus memperbaiki naskah skripsi/tesis/disertasinya dalam bimbingan pembimbing/promotor.
+       d. Hasil pemeriksaan kesamaan/kemiripan naskah (similarity checking) dilampirkan pada skripsi/tesis/disertasi.
+       e. Ketentuan tingkat kemiripan/kesamaan draft artikel ilmiah yang akan dipublikasi mengikuti ketentuan pengelola jurnal/prosiding yang dituju. 
+  utter_jawab_stop_out:
+  - text: |
+      Ketentuan PKA atau SO adalah sebagai berikut:
+       a. Permohonan PKA atau SO dapat diajukan mahasiswa dengan alasan kesehatan/sakit dengan surat keterangan resmi dari dokter atau alasan lain yang telah mendapat persetujuan dosen PA.
+       b. Permohonan pengajuan PKA atau SO hanya dapat dilakukan apabila mahasiswa telah menempuh minimal 4 semester untuk program sarjana, atau telah menempuh minimal 50% dari total sks yang wajib ditempuh pada program studinya.
+       c. Permohonan PKA atau SO diusulkan mahasiswa kepada Dekan/Direktur, diketahui oleh dosen PA dan koordinator program studi, selambat-lambatnya pada minggu ketiga setelah semester berjalan dimulai.
+       d. Permohonan PKA atau SO tersebut disampaikan ke Rektor oleh Dekan/Direktur.
+       e. Rektor menerbitkan surat keputusan izin atau menolak permohonan PKA/SO mahasiswa.
+       f. Apabila SK Rektor Universitas Sriwijaya tentang mahasiswa yang dinyatakan PKA/SO pada semester berjalan telah terbit, maka permohonan untuk PKA/SO yang diajukan setelah itu dalam semester berjalan tidak dapat dikabulkan, kecuali bagi mahasiswa dengan alasan sakit yang mendapat keterangan dari dokter.
+       g. Masa studi mahasiswa memperhitungkan masa PKA/SO mahasiswa (lama PKA atau SO diperhitungkan sebagai masa studi).
+       h. Permohonan PKA atau SO tidak dapat diajukan oleh mahasiswa penerima beasiswa Bidikmisi, atau oleh mahasiswa program Diploma Tiga, Sarjana, Magister atau Doktor yang menerima beasiswa penuh (full scholarship).
+       i. Seluruh mahasiswa pascasarjana penerima beasiswa tidak dapat mengajukan cuti kuliah selama dalam rentang waktu penerimaan beasiswa.
+       j. Pada masa PKA atau SO, mahasiswa tidak membayar Uang Kuliah Tunggal (UKT) dan tidak berhak melakukan kegiatan akademik, menggunakan fasilitas pendidikan, dan atau mendapat layanan bimbingan akademik dari dosen pembimbing.
+       k. Lama PKA atau SO maksimum 1 (satu) semester bagi program Diploma dan Program Sarjana.
+       l. Lama PKA atau SO maksimum 2 (dua) semester Program Magister dan Program Doktor, yang dapat diambil berturut-turut atau terpisah.
+       m. Mahasiswa program profesi dan spesialis tidak diperkenankan mengajukan permohonan PKA atau SO, hanya diperkenankan mengajukan izin meninggalkan kuliah karena alasan penting, dan tetap membayar Uang Kuliah Tunggal (UKT).
+  utter_jawab_ketentuan_bagi_mahasiswa_pindahan:
+  - text: |
+      Ketentuan Bagi Mahasiswa Pindahan adalah sebagai berikut:
+       a. Mahasiswa pindahan dikenakan ketentuan-ketentuan akademik, kurikulum, jangka masa studi, dan ketentuan administrasi keuangan yang berlaku di Universitas Sriwijaya.
+       b. Masa studi bagi mahasiswa pindahan mengikuti perhitungan batas waktu program studi yang berlaku di Universitas Sriwijaya dengan dihitung sejak terdaftar pada perguruan tinggi asal.
+       c. Tersedianya tempat pada Program Studi yang dituju.
+       d. Universitas Sriwijaya hanya dapat menerima mahasiswa pindahan pada setiap awal semester ganjil.
+  utter_jawab_hak_mahasiswa:
+  - text: |
+      Setiap mahasiswa aktif mempunyai hak yang sama untuk memperoleh layanan akademik yaitu:
+       1. Menggunakan kebebasan akademik secara bertanggung jawab untuk menuntut ilmu dan mengkajinya sesuai dengan norma, etika, dan susila yang berlaku dalam lingkungan akademik.
+       2. Memperoleh pengajaran sebaik-baiknya dan layanan bidang akademik sesuai dengan minat, bakat, kegemaran dan kemampuan.
+       3. Mendapatkan bimbingan dari pembimbing akademik dan atau dosen lain yang ditugaskan.
+       4. Memperoleh layanan informasi yang berkaitan program pendidikan yang diikutinya serta layanan konseling dan pengembangan karir.
+       5. Menyelesaikan studi lebih awal dari jadwal yang ditetapkan sesuai dengan persyaratan yang berlaku.
+       6. Memperoleh layanan kesejahteraan berupa beasiswa uang pembinaan bagi mahasiswa berprestasi sesuai dengan ketentuan yang berlaku.
+       7. Memanfaatkan sumber daya Universitas, Fakultas, dan Program studi untuk kelancaran proses belajar mengajar serta pengembangan minat dan bakat melalui organisasi kemahasiswaan.
+       8. Pindah ke perguruan tinggi (PT) lain atau program studi lain, bilamana memenuhi persyaratan yang ditetapkan.
+       9. Mengikuti perkuliahan di luar Universitas Sriwijaya maksimal 2 semester atau setara dengan 40 sks serta 1 semester atau setara 20 sks pada program studi yang berbeda di Universitas Sriwijaya.
+       10. Mengikuti perlombaan/kejuaraan tingkat Fakultas, Universitas, nasional, regional, dan internasional.
+       11. Ikut serta dalam kegiatan organisasi kemahasiswaan di tingkat Universitas, Fakultas, Jurusan, dan atau Prodi (ketentuan mengenai organisasi kemahasiswaan diatur lebih lanjut melaui peraturan Rektor Universitas Sriwijaya.
+  utter_jawab_peringatan_dan_sanksi:
+  - text: |
+      Peringatan dan Sanksi bagi mahasiswa Universitas Sriwijaya sebagai berikut:
+       1. Pelanggaran terhadap ketentuan, peraturan, dan larangan yang telah ditetapkan oleh Universitas, Fakultas dan Jurusan termasuk berperilaku buruk dan atau merusak, mahasiswa dikenai sanksi sesuai ketentuan yang berlaku berupa pemberian peringatan, skorsing, hingga pemecatan/diberhentikan sebagai mahasiswa oleh Universitas Sriwijaya.
+       2. Pelanggaran terhadap ketentuan etika dan kejujuran akademik merupakan pelanggaran integritas akademik dan merupakan tindakan pelanggaran berat. Pelanggaran integritas akademik dapat berupa tindakan plagiasi, fasifikasi data, fabrikasi data dan atau tindakan tercela lainnya dalam hal akademik. Sanksi untuk pelanggaran ini adalah:
+       a. Sanksi untuk tindakan kecurangan akademik dalam proses pembelajaran mata kuliah seperti kecurangan dalam pembuatan tugas atau ujian adalah pemberian peringatan kepada mahasiswa, pemberian nilai nol untuk tugas/ujian tersebut, hingga sanksi berupa pembatalan mahasiswa dari kesertaan pada mata kuliah tersebut, atau sanksi lain yang bersifat mendidik. Sanksi pembatalan mahasiswa dari kesertaan pada mata kuliah ditetapkan dalam rapat program studi dilaporkan koordinator program studi kepada Dekan Fakultas/Direktur Pascasarjana.
+       b. Pelanggaran integritas akademik pemalsuan data dan bukti akademik, atau pelanggaran etika akademik pada tugas akhir program (praktik lapang/kerja praktik, KKN/KKN Tematik, skripsi, tesis, disertasi dan publikasi ilmiah) merupakan pelanggaran berat. Sanksi pelanggaran ini adalah pembatalan tugas akhir dan skorsing, sampai dengan sanksi pemberhentian dan atau pemecatan sebagai mahasiswa Universitas Sriwijaya ataupun pembatalan gelar akademik yang telah diperoleh dari hasil kecurangan akademik tersebut.
+       c. Tata cara penjatuhan sanksi untuk pelanggaran berat integritas akademik diatur oleh Komisi Etik yang khusus ditetapkan Rektor untuk kasus pelanggaran berat tersebut.
+       d. Komisi Etik mempelajari dan atau menelaah kasus kasus pelanggaran berat yang dimaksud dan mengusulkan sanksi bagi mahasiswa/alumnus yang bersangkutan kepada Rektor.
+       e. Rektor memutuskan dan menetapkan sanksi bagi mahasiswa/alumnus yang bersangkutan berdasarkan pertimbangan Komisi Etik yang ditunjuk, dan menetapkan keputusan sanksi dalam Surat Keputusan Rektor.
+       3. Pelanggaran terhadap larangan melakukan aktivitas/kegiatan yang terlarang berdasarkan norma agama, susila, sosial, dan hukum negara Republik Indonesia, maka kepada mahasiswa tersebut dapat diberikan sanksi skorsing atau pemecatan/diberhentikan sebagai mahasiswa oleh Universitas Sriwijaya.
+       4. Pelanggaran terhadap larangan melakukan tindakan propaganda, menyebar fitnah, dan menyalahgunakan lambang/atribut Universitas Sriwijaya, maka kepada mahasiswa tersebut dapat diberikan sanksi berupa skorsing tidak mengikuti kegiatan akademik selama minimal satu semester atau pemecatan/diberhentikan sebagai mahasiswa oleh Universitas Sriwijaya.
+       5. Pelanggaran terhadap larangan melakukan tindakan kekerasan termasuk perundungan (bullying), perkelahian dan/atau tawuran antarmahasiswa dalam Kampus Universitas Sriwijaya atau perkelahian/tawuran di luar kampus yang mencemarkan nama baik Universitas Sriwijaya maka kepada mahasiswa tersebut dapat diberikan sanksi berupa skorsing tidak mengikuti kegiatan akademik selama minimal satu semester atau pemecatan/diberhentikan sebagai mahasiswa oleh Universitas Sriwijaya.
+       6. Pelanggaran terhadap larangan melakukan tindakan melanggar hukum dan telah dinyatakan dengan surat keputusan/pernyataan/keterangan dari institusi penegakan hukum, maka kepada mahasiswa tersebut diberikan sanksi berupa pemberhentian sebagai mahasiswa Universitas Sriwijaya.
+       7. Pelanggaran terhadap larangan melakukan tindakan kriminal, mencuri, berkelahi, provokasi, menghasut, anarkisme, perpeloncoan, membuat kekacauan dan kerusuhan yang menimbulkan kerusakan barang milik negara maka kepada mahasiswa tersebut dapat diberikan sanksi berupa peringatan tertulis hingga pemberhentian sebagai mahasiswa Universitas Sriwijaya.
+       8. Apabila Mahasiswa terbukti melakukan kecurangan akademik bertindak sebagai joki atau meminta seseorang melakukan perjokian untuk mengikuti ujian/penilaian/pelatihan/perkuliahan/kegiatan akademik yang diselenggarakan oleh Universitas Sriwijaya, maka kepada mahasiswa tersebut dapat diberikan sanksi pemecatan/diberhentikan sebagai mahasiswa oleh Universitas Sriwijaya.
+       9. Apabila seorang calon mahasiswa dalam pemeriksaan klinis laboratorium ternyata hasilnya terdapat indikasi pemakai/pengguna narkoba, sesuai dengan surat Ditjen Dikti Depdiknas No. 131/D/2000 tanggal 21 Januari 2000 maka kepada calon mahasiswa tersebut dapat diberikan sanksi berupa dibatalkan/gugur/diberhentikan sebagai mahasiswa.
+       10. Seluruh civitas akademika (dosen dan mahasiswa) dan tenaga kependidikan wajib terbebaskan dari pengedar/pemakai/pengguna narkoba/NAFZA. Universitas Sriwijaya berhak mengadakan pemeriksaan penggunaan narkoba secara mendadak tanpa pemberitahuan sebelumnya. Apabila terbukti dosen/mahasiswa/tenaga kependidikan bertindak sebagai pengedar atau dari hasil pemeriksaan klinis laboratorium ternyata positif terdapat indikasi pemakai/pengguna narkoba/NAFZA, maka kepada pelaku yang bersangkutan dapat diberikan sanksi berupa pemberhentian sebagai Dosen/Mahasiswa/Karayawan dan akan diproses hukum sesuai ketentuan yang berlaku.
+       11. Pelanggaran terhadap ketentuan di atas, kecuali pelanggaran pada angka 2 (pelanggaran terhadap ketentuan etika dan kejujuran akademik), ditangani oleh Komisi Disiplin yang dibentuk pada tingkat program studi, jurusan, fakultas, program pascasarjana, atau universitas.
+       12. Komisi Disiplin merupakan tim yang ditunjuk dan diangkat oleh pimpinan masing-masing unit kerja atau Rektor dengan tugas dan wewenang memeriksa dan memberi saran atau rekomendasi penyelesaian atas pelanggaran terhadap peraturan Universitas Sriwijaya.
+  utter_jawab_predikat_kelulusan:
+  - text: |
+      Mengacu pada Peraturan Menteri Pendidikan dan Kebudayaan Nomor 3 Tahun 2020 dalam Pasal 27 ayat (2), predikat kelulusan terdiri atas 3 (tiga) tingkat yaitu Memuaskan, Sangat Memuaskan dan Pujian (Cumlaude) yang ditetapkan berdasarkan pada Indeks Prestasi Kumulatif (IPK) yang dicapai mahasiswa dan masa studi, dengan kriteria sebagai berikut:
+       1. Diploma Tiga :
+       a. 2.76 - 3.00 = Memuaskan
+       b. 3.01 - 3.50 = Sangat Memuaskan
+       c. >3.50 = Pujian
+       Syarat untuk memperoleh predikat Pujian :
+       a. Masa Studi Maksimum 6(Enam) Semester
+       b. Maksimum 1 mata kuliah dengan nilai C
+       2. Sarjana :
+       a. 2.76 - 3.00 = Memuaskan
+       b. 3.01 - 3.50 = Sangat Memuaskan
+       c. >3.50 = Pujian (Cumlaude)
+       Syarat untuk memperoleh predikat Pujian :
+       a. Masa Studi Maksimum 8(Delapan) Semester
+       b. Maksimum 1 mata kuliah dengan nilai C
+       c. Nilai skripsi A
+       3. Profesi :
+       a. 3.00 - 3.50 = Memuaskan
+       b. 3.51 - 3.75 = Sangat Memuaskan
+       c. >3.75 = Pujian (Cumlaude)
+       Syarat untuk memperoleh predikat Pujian :
+       a. Masa Studi Maksimum 2 (dua) atau 4 (empat) semester sesuai program profesi yang diikuti
+       b. Tidak mempunyai mata kuliah dengan nilai C.
+  utter_jawab_kriteria_putus_studi_doktor:
+  - text: |
+      Mahasiswa Program Doktor dinyatakan putus studi (drop out) apabila memenuhi satu atau lebih kriteria berikut:
+       1. Apabila tidak memenuhi kewajiban akademik yang dipersyaratkan untuk program Doktor yang ditetapkan dengan Surat Keputusan Rektor. Secara rinci persyaratan, prosedur dan ketentuan akademik lainnya tentang program Doktor di lingkungan Universitas Sriwijaya dimuat dalam Buku Pedoman Akademik tersendiri; atau 
+       2. Tidak membayar UKT semester sampai batas waktu yang telah ditentukan dan tidak mengajukan SO. 
+       
+  utter_jawab_pindah_di_dalam_unsri:
+  - text: |
+      Mahasiswa dapat pindah dari satu program studi ke program studi lain dalam lingkungan Universitas Sriwijaya, apabila memenuhi persyaratan sebagai berikut: 
+       a. Pindah program hanya dapat dilakukan mahasiswa pada program studi yang sejenis atau serumpun pada jenjang yang sama dalam lingkungan Universitas Sriwijaya.
+       b. Perpindahan program studi bukan disebabkan pelanggaran akademik.
+       c. Mahasiswa telah mengikuti kegiatan akademik sekurang-kurangnya dua semester dan minimum telah mengumpulkan 26 sks.
+       d. Mahasiswa meraih IPK ≥ 2,25, bagi Program Diploma Tiga atau Program Sarjana, dan ≥ 3,00 bagi Program Magister dan Program Doktor.
+       e. Mahasiswa bersedia memenuhi semua ketentuan administrasi akademik dan keuangan yang berlaku pada program studi tujuan.
+       f. Perpindahan program studi disetujui Dekan Fakultas/Direktur Program Pascasarjana pada program studi yang menjadi tujuan berdasarkan pertimbangan prestasi akademik mahasiswa, daya tampung/kapasitas prodi tujuan, alasan kepindahan, dan pertimbangan akademik khusus jika diperlukan.
+
+      Tata cara pindah program studi di dalam Universitas Sriwijaya:
+       a. Mahasiswa menyampaikan maksud pindah program studi kepada dosen PA.
+       b. Setelah mendapat pertimbangan dosen PA, mahasiswa mengajukan permohonan pindah program studi kepada Dekan Fakultas/Direktur Program Pascasarjana pada prodi asal.
+       c. Dekan Fakultas/Direktur Program Pascasarjana, setelah mempertimbangkan prestasi akademik mahasiswa, daya tampung/kapasitas prodi tujuan, alasan kepindahan, dan pertimbangan akademik lainnya, dapat menerima atau menolak permohonan pindah program studi.
+       d. Apabila Dekan Fakultas/Direktur Program Pascasarjana prodi asal menyetujui permohonan pindah program studi yang diajukan mahasiswa, Dekan Fakultas/Direktur Program Pascasarjana prodi asal meneruskan permohonan mahasiswa tersebut kepada Rektor.
+       e. Apabila prodi tujuan berada pada fakultas yang sama, Rektor menetapkan persetujuan atau penolakan permohonan pindah program studi yang diusulkan.
+       f. Apabila prodi tujuan berbeda fakultas, Rektor meneruskan permohonan pindah program studi kepada Dekan pada prodi tujuan, untuk meminta pertimbangan.
+       g. Memperhatikan pertimbangan Dekan pada prodi tujuan, Rektor menetapkan persetujuan atau penolakan permohonan pindah program studi yang diusulkan.
+       
+  utter_jawab_pindah_pt_lain_ke_unsri:
+  - text: |
+      Universitas Sriwijaya dapat menerima mahasiswa pindahan dari perguruan tinggi lain pada program studi yang sama dengan program studi yang diselenggarakan Universitas Sriwijaya dengan ketentuan:
+       a. Program studi asal memiliki akreditasi minimal sama dengan program studi tujuan di Universitas Sriwijaya.
+       b. Kepindahan diajukan karena alasan mutasi dinas orang tua/wali serta dengan bukti yang kuat tentang perlunya kebersamaan (ketergantungan) mahasiswa yang bersangkutan dengan orang tua/wali-nya.
+       c. Alasan pindah ke Universitas Sriwijaya bukan karena dikeluarkan dari perguruan tinggi asal yang dibuktikan dengan surat keterangan dari Rektor bersangkutan.
+       d. Tersedia sisa masa studi yang memenuhi persyaratan untuk menyelesaikan pendidikannya di Universitas Sriwijaya.
+       e. Tersedia daya tampung pada prodi yang dituju.
+       f. Memenuhi persyaratan akademik dan keuangan yang ditetapkan oleh Fakultas/Program tujuan.
+       g. Bagi mahasiswa pindahan dari Program Sarjana maka berlaku persyaratan sebagai berikut:
+       1) Telah mengikuti kegiatan akademik selama minimal dua semester di perguruan tinggi asal, harus mengumpulkan sekurang-kurangnya 27 sks dengan IPK ≥ 2,76 atau yang ditetapkan oleh program studi.
+       2) Telah mengikuti kegiatan akademik selama 4 semester di perguruan tinggi asal, dan harus mengumpulkan sekurang-kurangnya 52 sks dengan IPK ≥ 2,76 atau yang ditetapkan oleh program studi.
+       h. Bagi mahasiswa pindahan dari program magister atau program doktor, maka berlaku persyaratan sebagai berikut:
+       1) Persetujuan perpindahan diberikan oleh Rektor dengan mempertimbangkan status dan kualitas perguruan tinggi asal, akreditasi, jalur seleksi, serta alasan kepindahan.
+       2) Permohonan perpindahan diajukan langsung ke Rektor dengan melampirkan persyaratan yang ditetapkan.
+       3) IPK minimal 3,25 untuk Program Magister.
+       4) IPK minimal 3,50 untuk Program Doktor.
+       5) Telah mengikuti kegiatan akademik di perguruan tinggi asal selama maksimum 2 semester untuk Program Magister dengan jumlah kredit sekurang-kurangnya 20 sks dan maksimum 4 semester untuk Program Doktor dengan jumlah kredit sekurangkurangnya 37 sks.
+  utter_jawab_kewajiban:
+  - text: |
+      Mahasiswa berkewajiban: 
+       1. Mematuhi semua ketentuan peraturan, etika akademik, dan etika perilaku yang berlaku di Universitas Sriwijaya.
+       2. Senantiasa berperilaku baik, sopan dan santun, saling menghargai dan menghormati, menjaga nama baik Universitas Sriwijaya, serta tidak melakukan perbuatan tercela termasuk perbuatan/perkataan yang menunjukkan sikap intoleransi, pelecehan seksual dan atau perundungan (bullying) di lingkungan kampus maupun di luar kampus.
+       3. Menggunakan pakaian dan penampilan yang sopan serta tidak menggunakan perhiasan yang berlebihan baik didalam kampus atau diluar kampus.
+       4. Ikut menanggung biaya penyelenggaraan pendidikan kecuali bagi mahasiswa yang diberikan beasiswa baik yang bersumber dari APBN dan Non APBN.
+       5. Menjaga integritas dan kejujuran akademik dengan tidak melakukan tindakan plagiat, fabrikasi atau falsifikasi data dan informasi dalam kegiatan akademik termasuk dalam pelaksanaan pembelajaran, penelitian, dan atau pengabdian kepada masyarakat, serta pada berbagai karya tulis ilmiah termasuk publikasi ilmiah/skripsi/ tesis/disertasi, serta karya akademik lainnya.
+       6. Menghargai ilmu pengetahuan, teknologi, dan kesenian dan Menjaga kebersihan, ketentraman, ketenangan, kenyamanan, serta keindahan kampus Universitas Sriwijaya.
+       7. Ikut bertanggung jawab memelihara sarana dan prasarana serta kebersihan, ketertiban, keamanan, keindahan, dan pepohonan kampus Universitas Sriwijaya serta terciptanya kampus sehat.
+       8. Mencegah pengrusakan sarana prasarana Universitas Sriwijaya, penebangan pohonpohon yang tanpa alasan dan perintah oleh pihak yang tidak bertanggung jawab dalam kampus Universitas Sriwijaya.
+       9. Menjaga kewibawaan dan nama baik Universitas/Fakultas/ Program.
+       10. Menjunjung tinggi nilai kebudayaan nasional dan menghormati budaya negara lain.
+  utter_jawab_persyaratan_yudisium:
+  - text: |
+      Mahasiswa dapat dinyatakan lulus apabila telah:
+       1. menyelesaikan seluruh ketentuan belajar dan mencapai kompetensi lulusan yang ditetapkan pada kurikulum program studi,
+       2. mengumpulkan jumlah kredit minimum yang dipersyaratkan dan menyelesaikan studi dalam batas masa studi yang ditetapkan untuk masing-masing program sesuai Tabel 3.1. Penyelesaian program dalam masa studi yang melebihi ketentuan pada Tabel 3.1. dimungkinkan atas izin tertulis Rektor;
+       3. mencapai ketentuan capaian pembelajaran lulusan (kompetensi lulusan) yang ditetapkan pada kurikulum program studi dengan nilai dan IPK minimal sesuai ketentuan sebagai berikut:
+       a. program diploma mencapai IPK ≥ 2,00, program sarjana mencapai IPK ≥ 2,76, program magister dan program doktor mencapai IPK ≥ 3,25;
+       b. tidak memiliki nilai E untuk program diploma, dan program sarjana, dan tidak memiliki nilai D atau E untuk program magister dan program doktor; dan 
+       c. program diploma dan program sarjana, nilai D tidak melebihi 10% dari jumlah kredit minimal yang ditetapkan;
+       4. memenuhi ketentuan publikasi hasil penelitian bagi program Magister dan program Doktor sesuai ketentuan yang diuraikan pada Bagian 3.6, Tabel 3.2;
+       5. memenuhi ketentuan pemeriksaan kesamaan/kemiripan naskah sesuai ketentuan yang diuraikan pada Bagian 3.12;
+       6. dinyatakan lulus untuk kompetensi lain, seperti penguasaan bahasa Inggris dengan memenuhi nilai Bahasa Inggris yang telah ditetapkan oleh Fakultas/Program/Jurusan/Prodi;
+       7. lulus ujian akhir program dan telah menyelesaikan seluruh ketentuan perbaikan tugas akhir pada proyek akhir, skripsi, tesis atau disertasi, sesuai dengan yang ditetapkan oleh Fakultas/Program/Jurusan/Prodi. Naskah tugas akhir skripsi, tesis, atau disertasi dapat dalam bentuk lain sesuai ketentuan pada Bagian 3.6 Tabel 3.2.;
+       8. memenuhi persyaratan administrasi kelulusan Universitas Sriwijaya; dan 
+       9. memenuhi kewajiban pelunasan biaya pendidikan (UKT).
+  utter_terimakasih:
+  - text: Baik Terima kasih! Bye...
+  utter_iamabot:
+  - text: Saya adalah Bot yang dibuat menggunakan Framework Rasa.
+actions:
+- action_get_time
+- action_reset
+forms: {}
+e2e_actions: []

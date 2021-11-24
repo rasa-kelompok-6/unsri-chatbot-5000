@@ -1,0 +1,399 @@
+version: "2.0"
+nlu:
+- intent: salam
+  examples: |
+    - assalamualaikum
+    - hey
+    - hai
+    - hello
+    - hi
+    - halo
+    - halo kak
+    - halo admin
+    - selamat pagi
+    - selamat siang
+    - selamat sore
+    - selamat malam
+- intent: help
+  examples: |
+    - help
+    - lihat list
+    - lihat list pertanyaan
+    - pertanyaannya apa saja
+    - apa saja pertanyaannya
+    - lihat pertanyaan
+    - bisa tanya apa saja?
+    - boleh bertanya tidak
+    - bisa tolong bertanya ?
+- intent: tanya_bentuk_putus_studi
+  examples: |
+    - saya ingin bertanya tentang bentuk putus studi seperti apa?
+    - apa saja bentuk putus studi di universitas sriwijaya?
+    - apa saja bentuk putus studi di unsri?
+    - bentuk putus studi di universitas sriwijaya
+    - bentuk putus studi di unsri
+    - mau tau putus studi di universitas sriwijaya gimana?
+    - mau tau putus studi di unsri gimana?
+    - bentuk putus studi di unsri gimana ya?
+    - apa aja bentuk putus studi di unsri?
+    - saya mau nanya bentuk putus studi di unsri bagaimana ya?
+- intent: tanya_bentuk_putus_studi_undur
+  examples: |
+    - 1
+    - bagian 1
+    - kalau untuk mahasiswa yang mengundurkan diri bagaimana?
+    - untuk mahasiswa yang mengundurkan diri gimana?
+    - Mahasiswa yang mengundurkan diri
+    - mengundurkan diri
+    - undur diri
+    - nomor 1
+    - no 1
+    - yang 1
+    - yang bagian 1
+    - satu
+- intent: tanya_bentuk_putus_studi_do
+  examples: |
+    - 2
+    - bagian 2
+    - kalau untuk mahasiswa yang drop out bagaimana?
+    - untuk mahasiswa yang drop out gimana?
+    - kalau untuk mahasiswa yang do bagaimana?
+    - untuk mahasiswa yang do gimana?
+    - Mahasiswa yang dinyatakan putus studi (drop out)
+    - drop out
+    - do
+    - DO
+    - nomor 2
+    - no 2
+    - yang 2
+    - yang bagian 2
+    - dua
+    - mahasiswa do
+- intent: tanya_bentuk_putus_studi_diberhentikan
+  examples: |
+    - 3
+    - bagian 3
+    - kalau untuk mahasiswa yang diberhentikan bagaimana?
+    - untuk mahasiswa yang diberhentikan gimana?
+    - kalau untuk mahasiswa yang dikeluarkan bagaimana?
+    - untuk mahasiswa yang dikeluarkan gimana?
+    - kalau untuk mahasiswa yang diberhentikan/dikeluarkan bagaimana?
+    - untuk mahasiswa yang diberhentikan/dikeluarkan gimana?
+    - Mahasiswa yang diberhentikan/dikeluarkan dari Universitas Sriwijaya
+    - yang diberhentikan
+    - yang dikeluarkan unsri
+    - diberhentikan unsri
+    - diberhentikan universitas sriwijaya
+    - dikeluarkan unsri
+    - dikeluarkan universitas sriwijaya
+    - diberhentikan/dikeluarkan unsri
+    - nomor 3
+    - no 3
+    - yang 3
+    - yang bagian 3
+    - tiga
+- intent: tanya_pindah_unsri_Ke_ptn_lain
+  examples: |
+    - bagaimana cara perpindahan mahasiswa ke perguruan tinggi lain?
+    - tata cara perpindahan mahasiswa ke perguruan tinggi lain
+    - cara pindah dari unsri ke kampus lain?
+    - cara pindah dari unsri ke ptn lain?
+    - cara pindah dari unsri ke perguruan tinggi lain?
+    - perpindahan mahasiswa dari unsri ke ptn lain
+    - bagaimana cara perpindahan mahasiswa ke ptn lain?
+    - bagaimana cara perpindahan mahasiswa ke kampus lain?
+    - tata cara perpindahan mahasiswa ke ptn lain
+    - tata cara perpindahan mahasiswa ke kampus lain
+- intent: tanya_larangan
+  examples: |
+    - larangan apa saja yang tidak boleh dilanggar di universitas sriwijaya?
+    - larangan apa saja yang tidak boleh dilanggar di unsri?
+    - larangan mahasiswa di universitas sriwijaya
+    - larangan mahasiswa di unsri
+    - apa saja larangan mahasiswa di universitas sriwijaya?
+    - apa saja larangan mahasiswa di unsri?
+    - apa saja yang tidak boleh dilanggar mahasiswa unsri?
+    - apa saja yang tidak boleh dilanggar mahasiswa universitas sriwijaya?
+    - larangan-larangan di unsri
+    - larangan2 di unsri
+    - hal yang tidak boleh dilakukan di universitas sriwijaya?
+    - hal-hal yang tidak boleh dilakukan di universitas sriwijaya?
+    - hal yang tidak boleh dilakukan di unsri?
+    - hal-hal yang tidak boleh dilakukan di unsri?
+- intent: tanya_ketentuan_pencegahan_plagiasi
+  examples: |
+    - terkait plagiasi di universitas sriwijaya bagaimana?
+    - tentang tindakan plagiasi di univeristas sriwijaya
+    - tentang tindakan plagiasi di unsri
+    - tentang plagiasi di unsri
+    - ketentuan plagiasi di universitas sriwijaya
+    - ketentuan plagiasi di unsri
+    - pencegahan tindakan plagiasi di universitas sriwijaya
+    - pencegahan tindakan plagiasi di unsri
+    - peraturan tentang tindakan plagiasi di universitas sriwijaya
+    - peraturan tentang tindakan plagiasi di unsri
+    - bagaimana tentang plagiasi?
+    - tentang peringatan dan sanksi di unsri
+- intent: tanya_kriteria_putus_studi_doktor
+  examples: |
+    - Putus studi mahasiswa program doktor
+    - Putus studi mahasiswa S3
+    - Kriteria putus studi mahasiswa program doktor
+    - Kriteria putus studi mahasiswa S3
+    - saya ingin bertanya mahasiswa program doktor dinyatakan putus studi jika bagaimana ya?
+    - saya ingin bertanya mahasiswa S3 dinyatakan putus studi jika bagaimana ya?
+    - Mahasiswa program doktor dinyatakan putus studi jika memenuhi kriteria yang bagaimana?
+- intent: tanya_pindah_di_dalam_unsri
+  examples: |
+    - apakah di unsri bisa pindah ke jurusan lain?
+    - apakah di unsri bisa pindah ke program studi lain?
+    - apakah di unsri bisa pindah ke fakultas lain?
+    - bagaimana cara pindah jurusan di unsri?
+    - bagaimana cara pindah program studi di unsri?
+    - pindah jurusan
+    - pindah program studi
+    - pindah fakultas
+    - apakah saya bisa pindah jurusan?
+    - apakah saya bisa pindah program studi?
+    - apakah mahasiswa di unsri bisa pindah jurusan?
+    - Apa saja syarat pindah jurusan?
+    - Syarat pindah program studi
+    - Syarat pindah fakultas
+    - Syarat pindah jurusan
+    - Bisa gak kalo saya mau pindah jurusan?
+    - Apakah di unsri memungkinkan untuk pindah jurusan dalam satu kampus?
+    - Saya ingin pindah jurusan
+    - tata cara pindah jurusan
+    - tata cara pindah program studi
+    - tata cara pindah fakultas
+- intent: tanya_pindah_pt_lain_ke_unsri
+  examples: |
+    - apakah unsri menerima pindahan dari perguruan tinggi lain?
+    - apakah unsri menerima pindahan dari kampus lain?
+    - pindah kampus ke unsri
+    - perpindahan mahasiswa dari perguruan tinggi lain ke unsri
+    - cara pindah dari kampus lain ke unsri
+    - bagaimana cara pindah ke unsri?
+    - bagaimana mahasiswa perguruan tinggi lain bisa pindah ke unsri?
+    - tata cara perpindahan mahasiswa perguruan tinggi lain ke unsri
+    - syarat pindah ke unsri
+    - kriteria pindah ke unsri
+- intent: tanya_kewajiban
+  examples: |
+    - apa saja kewajiban mahasiswa universitas sriwijaya?
+    - kewajiban mahasiswa unsri
+    - kewajiban mahasiswa universitas sriwijaya
+    - kewajiban apa saja yang harus dilakukan mahasiswa universitas sriwijaya?
+    - kewajiban apa saja yang harus dilakukan mahasiswa unsri?
+    - kewajiban di universitas sriwijaya
+    - kewajiban di unsri
+    - apa saja kewajiban mahasiswa?
+    - kewajiban mahasiswa
+- intent: tanya_persyaratan_yudisium
+  examples: |
+    - yudisium
+    - yudisium itu apa?
+    - yudisium adalah
+    - apa itu yudisium?
+    - apa saja persyaratan yudisium?
+    - apa syarat yudisium?
+    - syarat lulus
+    - syarat yudisium
+    - mahasiswa dinyatakan lulus jika?
+    - syarat mahasiswa dinyatakan lulus
+    - ketentuan mahasiswa dinyatakan lulus
+    - kelulusan mahasiswa
+    - kelulusan mahasiswa universitas sriwijaya
+    - tentang yudisium univeristas sriwijaya
+    - tentang kelulusan mahasiswa
+    - tentang kelulusan mahasiswa universitas sriwijaya
+- intent: bot_challenge
+  examples: |
+    - siapa kamu?
+    - dengan siapa saya bicara?
+    - siapa anda?
+    - anda siapa?
+    - kamu siapa?
+    - apakah kamu bot?
+    - apakah anda bot?
+    - apakah anda manusia?
+    - apakah sat ini saya bicara dengan bot?
+    - apakah saat ini saya bicara dengan manusia?
+- intent: selesai
+  examples: |
+    - tidak
+    - tidak ada
+    - cukup
+    - sudah
+    - tidak terimakasih
+    - tidak ada terimakasih
+    - cukup terimakasih
+    - sudah, terimakasih
+- intent: akhiri
+  examples: |
+    - bye
+    - sampai jumpa
+    - c u
+    - see you later
+    - semoga harimu menyenangkan
+    - dada
+    - dah
+    - dadah
+    - oke cukup
+    - oke itu saja
+    - itu saja
+    - sekian
+
+- intent: give_semester
+  examples: |
+    - saya semester [1](semester)
+    - saya sekarang semester [2](semester)
+    - sekarang saya semester [3](semester)
+    - semester [4](semester)
+    - semester saya sekarang adalah [5](semester)
+
+- intent: give_nim
+  examples: |
+    - nim saya [09021181924018](nim)
+    - nim [09021281924065](nim)
+    - [08024687215645](nim)
+    - [45722116547898](nim)
+    - [00788424687987](nim)
+    - [22235778971267](nim)
+    
+- intent: give_name
+  examples: |
+    - nama saya [AMOS AUGUSTO SILANGIT](name)
+    - my name is [MUHAMMAD RIZQI ASSABIL](name)
+    - name's [MUHAMMAD FURQON NAZULI](name)
+    - name is [ABDIANSYAH](name)
+    - yea, my name is [FRIZA ADITYA](name)
+    - sure. I am [AMALIA ANANDA KHALISA](name)
+    - yep. my name is [ISNANIA TULJANNAH](name)
+    - [LUTHFI ARYA DAKSA](name)
+    - [ABDIANSYAH](name)
+    - nama saya [Muhammad Rizqi Assabil](name)
+    - nama [Friza Aditya](name)
+    - saya dipanggil [Alfath](name)
+    - [Rezky](name)
+    - [Ariib Nafiis](name)
+    - [Amalia Ananda Khalisa](name)
+    - [Lutfhi Arya](name)
+    - [Amos Augusto Silangit](name)
+    - nama saya [AMOS AUGUSTO SILANGIT](name)
+    - my name is [MUHAMMAD RIZQI ASSABIL](name)
+    - name's [MUHAMMAD FURQON NAZULI](name)
+    - name is [ABDIANSYAH](name)
+    - yea, my name is [FRIZA ADITYA](name)
+    - sure. I am [AMALIA ANANDA KHALISA](name)
+    - yep. my name is [ISNANIA TULJANNAH](name)
+    - [LUTHFI ARYA DAKSA](name)
+    - [ABDIANSYAH](name)
+- intent: ask_name
+  examples: |
+    - siapa saya
+    - nama saya siapa
+    - beritahu nama saya
+    - beri tahu nama saya
+    - kasih tau nama saya
+    - nama
+    - nama saya
+    - nama ku siapa
+    - aku siapa
+    - namaku siapa
+    - whats my name?
+    - say my name
+    - do you know my name?
+    - tell me whats my name
+    - who am i
+    - hey whats my name
+    - hey who am i
+    - my name
+    - tell me my name
+
+- intent: give_ipk
+  examples: |
+    - Ipk saya [3.5](ipk)
+    - [2.45](ipk)
+    - Saya [4.00](ipk)
+    - saya memiliki ipk [1.26](ipk)
+    - ipk ku [3.91](ipk)
+    - ipk [0.8](ipk)
+    - ipk [2](ipk)
+    - [3](ipk)
+    - [2](ipk)
+
+- intent: give_data
+  examples: |
+    - saya ingin menambahkan data mahasiswa
+    - tambah data mahasiswa
+    - tambah data
+    - saya ingin tambah data
+    - aku mau nambah data
+    - mau nambah data
+    - nambah data
+    - ingin tambah data
+    - add data
+    - saya ingin menginput data
+    - input data
+    - saya ingin input data
+    - i want to add data
+    - i want to add student data
+    - i want to add more data
+    - wanna add data
+    - i wanna add data
+
+- intent: ask_data
+  examples: |
+    - saya ingin data dengan nama mahasiswa [Muhammad Rizqi Assabil](name)
+    - data dengan nama [Friza Aditya](name)
+    - data dengan nim [09021281924065](nim)
+    - saya ingin data dengan nim [08024687215645](nim)
+    - data mahasiswa semester [5](semester)
+    - data semester [3](semester)
+    - data mahasiswa dengan ipk [4.00](ipk)
+    - mahasiswa ipk [3.5](ipk)
+    - data [Muhammad Rizqi Assabil](name) dengan nim [09021281924065](nim) semester [5](semester) dan ipk [3.51](ipk)
+    - data mahaiswa [Muhammad Rizqi Assabil](name)
+    - data dengan nama [Friza Aditya](name)
+    - data bernama [Alfath](name)
+    - berikan saya data [Rezky](name)
+    - saya ingin data [Ariib Nafiis](name)
+    - data [Amalia Ananda Khalisa](name)
+    - tolong keluarkan data [Lutfhi Arya](name)
+    - keluarkan data [Amos Augusto Silangit](name)
+    - data nama [AMOS AUGUSTO SILANGIT](name)
+    - data dengan nama [MUHAMMAD FURQON NAZULI](name) dan nim [09021181924001](nim)
+    - data lengkap untuk orang bernama [ABDIANSYAH](name)
+    - berikan data dengan nama [FRIZA ADITYA](name) dan semester [5](semester)
+    - [AMALIA ANANDA KHALISA](name) dan semester [3](semester)
+    - [ISNANIA TULJANNAH](name) dan ipk [3.5](ipk)
+    - [LUTHFI ARYA DAKSA](name) dan semester [8](semester) dan ipk [3.5](ipk)
+    - [ABDIANSYAH](name) nim [09021281924001](nim) semester [5](semester) ipk [4.0](ipk)
+
+- intent: reset
+  examples: |
+    - reset
+    - reset slot
+    - /reset  
+
+- intent: ask_time
+  examples: |
+    - jam berapa sekarang
+    - sekarang jam berapa
+    - jam
+    - tolong beri tahu saya jam sekarang
+    - tolong beri tahu jam
+    - jam sekarang
+    - waktu
+    - sekarang pukul berapa
+    - sekarang jam
+    - time
+    - time now
+    - what time is it
+    - whats the time
+    - can you tell me the time
+    - tell me the time
+    - tell the time
+    - clock
+    - whats the clock

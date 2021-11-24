@@ -1,0 +1,1177 @@
+#### This file contains tests to evaluate that your bot behaves as expected.
+#### If you want to learn more, please see the docs: https://rasa.com/docs/rasa/testing-your-assistant
+
+stories:
+- story: User bertanya mengenai bentuk putus studi
+  steps:
+  - user: |
+      halo
+    intent: salam
+  - action: utter_salam
+  - user: |
+      bentuk putus studi di unsri
+    intent: tanya_bentuk_putus_studi
+  - action: utter_jawab_bentuk_putus_studi
+  - user: |
+      tidak
+    intent: selesai
+  - action: utter_terimakasih
+
+- story: User bertanya mengenai bentuk putus studi lanjut bagian 1
+  steps:
+  - user: |
+      halo
+    intent: salam
+  - action: utter_salam
+  - user: |
+      bentuk putus studi di unsri
+    intent: tanya_bentuk_putus_studi
+  - action: utter_jawab_bentuk_putus_studi
+  - user: |
+      nomor 1
+    intent: tanya_bentuk_putus_studi_undur
+  - action: utter_jawab_bentuk_putus_studi_undur
+  - action: utter_bantu_lagi
+  - user: |
+      tidak
+    intent: selesai
+  - action: utter_terimakasih
+
+- story: User bertanya mengenai bentuk putus studi lanjut bagian 2
+  steps:
+  - user: |
+      halo
+    intent: salam
+  - action: utter_salam
+  - user: |
+      bentuk putus studi di unsri
+    intent: tanya_bentuk_putus_studi
+  - action: utter_jawab_bentuk_putus_studi
+  - user: |
+      untuk mahasiswa yang do gimana?
+    intent: tanya_bentuk_putus_studi_do
+  - action: utter_jawab_bentuk_putus_studi_do
+  - action: utter_bantu_lagi
+  - user: |
+      cukup
+    intent: selesai
+  - action: utter_terimakasih
+
+- story: User bertanya mengenai bentuk putus studi lanjut bagian 3
+  steps:
+  - user: |
+      halo
+    intent: salam
+  - action: utter_salam
+  - user: |
+      bentuk putus studi di unsri
+    intent: tanya_bentuk_putus_studi
+  - action: utter_jawab_bentuk_putus_studi
+  - user: |
+      3
+    intent: tanya_bentuk_putus_studi_diberhentikan
+  - action: utter_jawab_bentuk_putus_studi_diberhentikan
+  - action: utter_bantu_lagi
+  - user: |
+      tidak terimakasih
+    intent: selesai
+  - action: utter_terimakasih
+
+- story: User bertanya mengenai bentuk putus studi lanjut bagian 1,2,3
+  steps:
+  - user: |
+      halo
+    intent: salam
+  - action: utter_salam
+  - user: |
+      bentuk putus studi di unsri
+    intent: tanya_bentuk_putus_studi
+  - action: utter_jawab_bentuk_putus_studi
+  - user: |
+      1
+    intent: tanya_bentuk_putus_studi_undur
+  - action: utter_jawab_bentuk_putus_studi_undur
+  - action: utter_bantu_lagi
+  - user: |
+      2
+    intent: tanya_bentuk_putus_studi_do
+  - action: utter_jawab_bentuk_putus_studi_do
+  - action: utter_bantu_lagi
+  - user: |
+      3
+    intent: tanya_bentuk_putus_studi_diberhentikan
+  - action: utter_jawab_bentuk_putus_studi_diberhentikan
+  - action: utter_bantu_lagi
+  - user: |
+      tidak terimakasih
+    intent: selesai
+  - action: utter_terimakasih
+
+- story: User bertanya mengenai perpindahan mahasiswa dari unsri ke perguruan tinggi lain
+  steps:
+  - user: |
+      halo
+    intent: salam
+  - action: utter_salam
+  - user: |
+      tata cara perpindahan mahasiswa ke kampus lain
+    intent: tanya_pindah_unsri_Ke_ptn_lain
+  - action: utter_jawab_pindah_unsri_Ke_ptn_lain
+  - action: utter_bantu_lagi
+  - user: |
+      tidak terimakasih
+    intent: selesai
+  - action: utter_terimakasih
+
+- story: User bertanya mengenai larangan di unsri
+  steps:
+  - user: |
+      halo
+    intent: salam
+  - action: utter_salam
+  - user: |
+      larangan mahasiswa di unsri
+    intent: tanya_larangan
+  - action: utter_jawab_larangan
+  - action: utter_bantu_lagi
+  - user: |
+      tidak terimakasih
+    intent: selesai
+  - action: utter_terimakasih
+
+- story: User bertanya mengenai pencegahan tindakan plagiasi
+  steps:
+  - user: |
+      halo
+    intent: salam
+  - action: utter_salam
+  - user: |
+      peraturan tentang tindakan plagiasi di unsri
+    intent: tanya_ketentuan_pencegahan_plagiasi
+  - action: utter_jawab_ketentuan_pencegahan_plagiasi
+  - action: utter_bantu_lagi
+  - user: |
+      tidak terimakasih
+    intent: selesai
+  - action: utter_terimakasih
+
+- story: User bertanya mengenai chatbot
+  steps:
+  - user: |
+      siapa kamu?
+    intent: bot_challenge
+  - action: utter_jawab_ketentuan_pencegahan_plagiasi
+  - action: utter_iamabot
+
+- story: User bertanya mengenai bentuk putus studi dilanjutkan pindah ke perguruan tinggi lain
+  steps:
+  - user: |
+      halo
+    intent: salam
+  - action: utter_salam
+  - user: |
+      apa saja bentuk putus studi di unsri?
+    intent: tanya_bentuk_putus_studi
+  - action: utter_jawab_bentuk_putus_studi
+  - user: |
+      tidak
+    intent: selesai
+  - action: utter_bantu_lagi
+  - user: |
+      tata cara perpindahan mahasiswa ke perguruan tinggi lain
+    intent: tanya_pindah_unsri_Ke_ptn_lain
+  - action: utter_jawab_pindah_unsri_Ke_ptn_lain
+  - action: utter_bantu_lagi
+  - user: |
+      tidak terimakasih
+    intent: selesai
+  - action: utter_terimakasih
+
+- story: User bertanya mengenai bentuk putus studi dilanjutkan larangan
+  steps:
+  - user: |
+      halo
+    intent: salam
+  - action: utter_salam
+  - user: |
+      apa saja bentuk putus studi di unsri?
+    intent: tanya_bentuk_putus_studi
+  - action: utter_jawab_bentuk_putus_studi
+  - user: |
+      tidak
+    intent: selesai
+  - action: utter_bantu_lagi
+  - user: |
+      larangan apa saja yang tidak boleh dilanggar di unsri?
+    intent: tanya_larangan
+  - action: utter_jawab_larangan
+  - action: utter_bantu_lagi
+  - user: |
+      tidak terimakasih
+    intent: selesai
+  - action: utter_terimakasih
+
+- story: User bertanya mengenai bentuk putus studi dilanjutkan pencegahan tindakan plagiasi
+  steps:
+  - user: |
+      halo
+    intent: salam
+  - action: utter_salam
+  - user: |
+      apa saja bentuk putus studi di unsri?
+    intent: tanya_bentuk_putus_studi
+  - action: utter_jawab_bentuk_putus_studi
+  - user: |
+      tidak
+    intent: selesai
+  - action: utter_bantu_lagi
+  - user: |
+      tentang tindakan plagiasi di univeristas sriwijaya
+    intent: tanya_ketentuan_pencegahan_plagiasi
+  - action: utter_jawab_ketentuan_pencegahan_plagiasi
+  - action: utter_bantu_lagi
+  - user: |
+      tidak terimakasih
+    intent: selesai
+  - action: utter_terimakasih
+
+- story: User bertanya mengenai pindah ke perguruan tinggi lain dilanjutkan larangan
+  steps:
+  - user: |
+      halo
+    intent: salam
+  - action: utter_salam
+  - user: |
+      tata cara perpindahan mahasiswa ke kampus lain
+    intent: tanya_pindah_unsri_Ke_ptn_lain
+  - action: utter_jawab_pindah_unsri_Ke_ptn_lain
+  - action: utter_bantu_lagi
+  - user: |
+      larangan-larangan di unsri
+    intent: tanya_larangan
+  - action: utter_jawab_larangan
+  - action: utter_bantu_lagi
+  - user: |
+      tidak terimakasih
+    intent: selesai
+  - action: utter_terimakasih
+
+- story: User bertanya mengenai pindah ke perguruan tinggi lain dilanjutkan pencegahan tindakan plagiasi
+  steps:
+  - user: |
+      halo
+    intent: salam
+  - action: utter_salam
+  - user: |
+      tata cara perpindahan mahasiswa ke kampus lain
+    intent: tanya_pindah_unsri_Ke_ptn_lain
+  - action: utter_jawab_pindah_unsri_Ke_ptn_lain
+  - action: utter_bantu_lagi
+  - user: |
+      peraturan tentang tindakan plagiasi di unsri
+    intent: tanya_ketentuan_pencegahan_plagiasi
+  - action: utter_jawab_ketentuan_pencegahan_plagiasi
+  - action: utter_bantu_lagi
+  - user: |
+      tidak terimakasih
+    intent: selesai
+  - action: utter_terimakasih
+
+- story: User bertanya mengenai larangan dilanjutkan pencegahan tindakan plagiasi
+  steps:
+  - user: |
+      halo
+    intent: salam
+  - action: utter_salam
+  - user: |
+      larangan-larangan di unsri
+    intent: tanya_larangan
+  - action: utter_jawab_larangan
+  - action: utter_bantu_lagi
+  - user: |
+      peraturan tentang tindakan plagiasi di unsri
+    intent: tanya_ketentuan_pencegahan_plagiasi
+  - action: utter_jawab_ketentuan_pencegahan_plagiasi
+  - action: utter_bantu_lagi
+  - user: |
+      tidak terimakasih
+    intent: selesai
+  - action: utter_terimakasih
+
+- story: User bertanya mengenai bentuk putus studi dilanjutkan pindah ke perguruan tinggi lain, dilanjutkan larangan, dilanjutkan pencegahan tindakan plagiasi
+  steps:
+  - user: |
+      halo
+    intent: salam
+  - action: utter_salam
+  - user: |
+      bentuk putus studi di unsri
+    intent: tanya_bentuk_putus_studi
+  - action: utter_jawab_bentuk_putus_studi
+  - user: |
+      tidak
+    intent: selesai
+  - action: utter_bantu_lagi
+  - user: |
+      tata cara perpindahan mahasiswa ke kampus lain
+    intent: tanya_pindah_unsri_Ke_ptn_lain
+  - action: utter_jawab_pindah_unsri_Ke_ptn_lain
+  - action: utter_bantu_lagi
+  - user: |
+      apa saja larangan mahasiswa di unsri?
+    intent: tanya_larangan
+  - action: utter_jawab_larangan
+  - action: utter_bantu_lagi
+  - user: |
+      ketentuan plagiasi di unsri
+    intent: tanya_ketentuan_pencegahan_plagiasi
+  - action: utter_jawab_ketentuan_pencegahan_plagiasi
+  - action: utter_bantu_lagi
+  - user: |
+      tidak terimakasih
+    intent: selesai
+  - action: utter_terimakasih
+
+- story: User bertanya mengenai bentuk putus studi lanjut bagian 1,2,3 dilanjutkan pindah ke perguruan tinggi lain
+  steps:
+  - user: |
+      halo
+    intent: salam
+  - action: utter_salam
+  - user: |
+      bentuk putus studi di unsri
+    intent: tanya_bentuk_putus_studi
+  - action: utter_jawab_bentuk_putus_studi
+  - user: |
+      1
+    intent: tanya_bentuk_putus_studi_undur
+  - action: utter_jawab_bentuk_putus_studi_undur
+  - action: utter_bantu_lagi
+  - user: |
+      2
+    intent: tanya_bentuk_putus_studi_do
+  - action: utter_jawab_bentuk_putus_studi_do
+  - action: utter_bantu_lagi
+  - user: |
+      3
+    intent: tanya_bentuk_putus_studi_diberhentikan
+  - action: utter_jawab_bentuk_putus_studi_diberhentikan
+  - action: utter_bantu_lagi
+  - user: |
+      tata cara perpindahan mahasiswa ke kampus lain
+    intent: tanya_pindah_unsri_Ke_ptn_lain
+  - action: utter_jawab_pindah_unsri_Ke_ptn_lain
+  - action: utter_bantu_lagi
+  - user: |
+      tidak terimakasih
+    intent: selesai
+  - action: utter_terimakasih
+
+- story: User bertanya mengenai bentuk putus studi lanjut bagian 1,2,3 dilanjutkan larangan
+  steps:
+  - user: |
+      halo
+    intent: salam
+  - action: utter_salam
+  - user: |
+      bentuk putus studi di unsri
+    intent: tanya_bentuk_putus_studi
+  - action: utter_jawab_bentuk_putus_studi
+  - user: |
+      1
+    intent: tanya_bentuk_putus_studi_undur
+  - action: utter_jawab_bentuk_putus_studi_undur
+  - action: utter_bantu_lagi
+  - user: |
+      2
+    intent: tanya_bentuk_putus_studi_do
+  - action: utter_jawab_bentuk_putus_studi_do
+  - action: utter_bantu_lagi
+  - user: |
+      3
+    intent: tanya_bentuk_putus_studi_diberhentikan
+  - action: utter_jawab_bentuk_putus_studi_diberhentikan
+  - action: utter_bantu_lagi
+  - user: |
+      larangan mahasiswa di unsri
+    intent: tanya_larangan
+  - action: utter_jawab_larangan
+  - action: utter_bantu_lagi
+  - user: |
+      tidak terimakasih
+    intent: selesai
+  - action: utter_terimakasih
+
+- story: User bertanya mengenai bentuk putus studi lanjut bagian 1,2,3 dilanjutkan pencegahan tindakan plagiasi
+  steps:
+  - user: |
+      halo
+    intent: salam
+  - action: utter_salam
+  - user: |
+      bentuk putus studi di unsri
+    intent: tanya_bentuk_putus_studi
+  - action: utter_jawab_bentuk_putus_studi
+  - user: |
+      1
+    intent: tanya_bentuk_putus_studi_undur
+  - action: utter_jawab_bentuk_putus_studi_undur
+  - action: utter_bantu_lagi
+  - user: |
+      2
+    intent: tanya_bentuk_putus_studi_do
+  - action: utter_jawab_bentuk_putus_studi_do
+  - action: utter_bantu_lagi
+  - user: |
+      3
+    intent: tanya_bentuk_putus_studi_diberhentikan
+  - action: utter_jawab_bentuk_putus_studi_diberhentikan
+  - action: utter_bantu_lagi
+  - user: |
+      tentang tindakan plagiasi di unsri
+    intent: tanya_ketentuan_pencegahan_plagiasi
+  - action: utter_jawab_ketentuan_pencegahan_plagiasi
+  - action: utter_bantu_lagi
+  - user: |
+      tidak terimakasih
+    intent: selesai
+  - action: utter_terimakasih
+
+- story: User bertanya mengenai bentuk putus studi lanjut bagian 1,2,3 dilanjutkan pindah ke perguruan tinggi lain, dilanjutkan larangan, dilanjutkan pencegahan tindakan plagiasi
+  steps:
+  - user: |
+      halo
+    intent: salam
+  - action: utter_salam
+  - user: |
+      bentuk putus studi di unsri
+    intent: tanya_bentuk_putus_studi
+  - action: utter_jawab_bentuk_putus_studi
+  - user: |
+      1
+    intent: tanya_bentuk_putus_studi_undur
+  - action: utter_jawab_bentuk_putus_studi_undur
+  - action: utter_bantu_lagi
+  - user: |
+      2
+    intent: tanya_bentuk_putus_studi_do
+  - action: utter_jawab_bentuk_putus_studi_do
+  - action: utter_bantu_lagi
+  - user: |
+      3
+    intent: tanya_bentuk_putus_studi_diberhentikan
+  - action: utter_jawab_bentuk_putus_studi_diberhentikan
+  - action: utter_bantu_lagi
+  - user: |
+      tata cara perpindahan mahasiswa ke kampus lain
+    intent: tanya_pindah_unsri_Ke_ptn_lain
+  - action: utter_jawab_pindah_unsri_Ke_ptn_lain
+  - action: utter_bantu_lagi
+  - user: |
+      larangan mahasiswa di unsri
+    intent: tanya_larangan
+  - action: utter_jawab_larangan
+  - action: utter_bantu_lagi
+  - user: |
+      tentang tindakan plagiasi di unsri
+    intent: tanya_ketentuan_pencegahan_plagiasi
+  - action: utter_jawab_ketentuan_pencegahan_plagiasi
+  - action: utter_bantu_lagi
+  - user: |
+      tidak terimakasih
+    intent: selesai
+  - action: utter_terimakasih
+
+- story: User bertanya mengenai ketentuan stop out
+  steps:
+  - user: |
+      halo
+    intent: salam
+  - action: utter_salam
+  - user: |
+      ketentuan stop out di unsri
+    intent: tanya_stop_out
+  - action: utter_jawab_stop_out  
+  - user: |
+      tidak
+    intent: selesai
+  - action: utter_terimakasih
+
+- story: User bertanya mengenai ketentuan bagi mahasiswa pindahan
+  steps:
+  - user: |
+      halo
+    intent: salam
+  - action: utter_salam
+  - user: |
+      ketentuan bagi mahasiswa pindahan
+    intent: tanya_ketentuan_bagi_mahasiswa_pindahan
+  - action: utter_jawab_ketentuan_bagi_mahasiswa_pindahan
+  - user: |
+      tidak
+    intent: selesai
+  - action: utter_terimakasih
+
+- story: User bertanya mengenai hak mahasiswa
+  steps:
+  - user: |
+      halo
+    intent: salam
+  - action: utter_salam
+  - user: |
+      hak mahasiswa unsri
+    intent: tanya_hak_mahasiswa
+  - action: utter_jawab_hak_mahasiswa
+  - action: utter_bantu_lagi
+  - user: |
+      tidak terimakasih
+    intent: selesai
+  - action: utter_terimakasih
+
+- story: User bertanya mengenai peringatan dan sanksi
+  steps:
+  - user: |
+      halo
+    intent: salam
+  - action: utter_salam
+  - user: |
+      peringatan dan sanksi bagi mahasiswa unsri
+    intent: tanya_peringatan_dan_sanksi
+  - action: utter_jawab_peringatan_dan_sanksi
+  - action: utter_bantu_lagi
+  - user: |
+      tidak terimakasih
+    intent: selesai
+  - action: utter_terimakasih
+
+- story: User bertanya mengenai kriteria predikat kelulusan
+  steps:
+  - user: |
+      halo
+    intent: salam
+  - action: utter_salam
+  - user: |
+      kriteria predikat kelulusan di unsri
+    intent: tanya_predikat_kelulusan
+  - action: utter_jawab_predikat_kelulusan
+  - action: utter_bantu_lagi
+  - user: |
+      tidak terimakasih
+    intent: selesai
+  - action: utter_terimakasih
+
+- story: User bertanya mengenai chatbot
+  steps:
+  - user: |
+      siapa kamu?
+    intent: bot_challenge
+  - action: utter_jawab_ketentuan_pencegahan_plagiasi
+  - action: utter_iamabot
+
+- story: User bertanya mengenai ketentuan stop out dilanjutkan ketentuan bagi mahasiswa pindahan
+  steps:
+  - user: |
+      halo
+    intent: salam
+  - action: utter_salam
+  - user: |
+      ketentuan stop out di unsri?
+    intent: tanya_stop_out
+  - action: utter_jawab_stop_out
+  - user: |
+      tidak
+    intent: selesai
+  - action: utter_bantu_lagi
+  - user: |
+      ketentuan bagi mahasiswa pindahan di unsri
+    intent: tanya_ketentuan_bagi_mahasiswa_pindahan
+  - action: utter_jawab_ketentuan_bagi_mahasiswa_pindahan
+  - action: utter_bantu_lagi
+  - user: |
+      tidak terimakasih
+    intent: selesai
+  - action: utter_terimakasih
+
+- story: User bertanya mengenai ketentuan stop out dilanjutkan hak mahasiswa
+  steps:
+  - user: |
+      halo
+    intent: salam
+  - action: utter_salam
+  - user: |
+      ketentuan stop out di unsri?
+    intent: tanya_stop_out
+  - action: utter_jawab_stop_out
+  - user: |
+      tidak
+    intent: selesai
+  - action: utter_bantu_lagi
+  - user: |
+      hak mahasiswa unsri
+    intent: tanya_hak_mahasiswa
+  - action: utter_jawab_hak_mahasiswa
+  - action: utter_bantu_lagi
+  - user: |
+      tidak terimakasih
+    intent: selesai
+  - action: utter_terimakasih
+
+- story: User bertanya mengenai ketentuan stop out dilanjutkan peringatan dan sanksi
+  steps:
+  - user: |
+      halo
+    intent: salam
+  - action: utter_salam
+  - user: |
+      ketentuan stop out di unsri?
+    intent: tanya_stop_out
+  - action: utter_jawab_stop_out
+  - user: |
+      tidak
+    intent: selesai
+  - action: utter_bantu_lagi
+  - user: |
+      peringatan dan sanksi bagi mahasiswa unsri
+    intent: tanya_peringatan_dan_sanksi
+  - action: utter_jawab_peringatan_dan_sanksi
+  - action: utter_bantu_lagi
+  - user: |
+      tidak terimakasih
+    intent: selesai
+  - action: utter_terimakasih
+
+- story: User bertanya mengenai ketentuan stop out dilanjutkan kriteria predikat kelulusan
+  steps:
+  - user: |
+      halo
+    intent: salam
+  - action: utter_salam
+  - user: |
+      ketentuan stop out di unsri?
+    intent: tanya_stop_out
+  - action: utter_jawab_stop_out
+  - user: |
+      tidak
+    intent: selesai
+  - action: utter_bantu_lagi
+  - user: |
+      kriteria predikat kelulusan di unsri?
+    intent: tanya_predikat_kelulusan
+  - action: utter_jawab_predikat_kelulusan
+  - action: utter_bantu_lagi
+  - user: |
+      tidak terimakasih
+    intent: selesai
+  - action: utter_terimakasih
+
+- story: User bertanya mengenai ketentuan bagi mahasiswa pindahan dilanjutkan hak mahasiswa
+  steps:
+  - user: |
+      halo
+    intent: salam
+  - action: utter_salam
+  - user: |
+      ketentuan bagi mahasiswa pindahan di unsri
+    intent: tanya_ketentuan_bagi_mahasiswa_pindahan
+  - action: utter_jawab_ketentuan_bagi_mahasiswa_pindahan
+  - action: utter_bantu_lagi
+  - user: |
+      hak mahasiswa di unsri
+    intent: tanya_hak_mahasiswa
+  - action: utter_jawab_hak_mahasiswa
+  - action: utter_bantu_lagi
+  - user: |
+      tidak terimakasih
+    intent: selesai
+  - action: utter_terimakasih
+
+- story: User bertanya mengenai ketentuan bagi mahasiswa pindahan dilanjutkan peringatan dan sanksi
+  steps:
+  - user: |
+      halo
+    intent: salam
+  - action: utter_salam
+  - user: |
+      ketentuan bagi mahasiswa pindahan di unsri
+    intent: tanya_ketentuan_bagi_mahasiswa_pindahan
+  - action: utter_jawab_ketentuan_bagi_mahasiswa_pindahan
+  - action: utter_bantu_lagi
+  - user: |
+      peringatan dan sanksi bagi mahasiswa unsri
+    intent: tanya_peringatan_dan_sanksi
+  - action: utter_jawab_peringatan_dan_sanksi
+  - action: utter_bantu_lagi
+  - user: |
+      tidak terimakasih
+    intent: selesai
+  - action: utter_terimakasih
+
+- story: User bertanya mengenai ketentuan bagi mahasiswa pindahan dilanjutkan kriteria predikat kelulusan
+  steps:
+  - user: |
+      halo
+    intent: salam
+  - action: utter_salam
+  - user: |
+      ketentuan bagi mahasiswa pindahan di unsri
+    intent: tanya_ketentuan_bagi_mahasiswa_pindahan
+  - action: utter_jawab_ketentuan_bagi_mahasiswa_pindahan
+  - action: utter_bantu_lagi
+  - user: |
+      kriteria predikat kelulusan di unsri
+    intent: tanya_predikat_kelulusan
+  - action: utter_jawab_predikat_kelulusan
+  - action: utter_bantu_lagi
+  - user: |
+      tidak terimakasih
+    intent: selesai
+  - action: utter_terimakasih
+
+- story: User bertanya mengenai hak mahasiswa dilanjutkan peringatan dan sanksi
+  steps:
+  - user: |
+      halo
+    intent: salam
+  - action: utter_salam
+  - user: |
+      hak mahasiswa di unsri
+    intent: tanya_hak_mahasiswa
+  - action: utter_jawab_hak_mahasiswa
+  - action: utter_bantu_lagi
+  - user: |
+      peringatan dan sanksi bagi mahasiswa unsri 
+    intent: tanya_peringatan_dan_sanksi
+  - action: utter_jawab_peringatan_dan_sanksi
+  - action: utter_bantu_lagi
+  - user: |
+      tidak terimakasih
+    intent: selesai
+  - action: utter_terimakasih
+
+
+- story: User bertanya mengenai hak mahasiswa dilanjutkan kriteria predikat kelulusan
+  steps:
+  - user: |
+      halo
+    intent: salam
+  - action: utter_salam
+  - user: |
+      hak mahasiswa di unsri
+    intent: tanya_hak_mahasiswa
+  - action: utter_jawab_hak_mahasiswa
+  - action: utter_bantu_lagi
+  - user: |
+      kriteria predikat kelulusan di unsri
+    intent: tanya_predikat_kelulusan
+  - action: utter_jawab_predikat_kelulusan
+  - action: utter_bantu_lagi
+  - user: |
+      tidak terimakasih
+    intent: selesai
+  - action: utter_terimakasih
+
+- story: User bertanya mengenai peringatan dan sanksi dilanjutkan kriteria predikat kelulusan
+  steps:
+  - user: |
+      halo
+    intent: salam
+  - action: utter_salam
+  - user: |
+      peringatan dan sanksi bagi mahasiswa unsri 
+    intent: tanya_peringatan_dan_sanksi
+  - action: utter_jawab_peringatan_dan_sanksi
+  - action: utter_bantu_lagi
+  - user: |
+      kriteria predikat kelulusan di unsri
+    intent: tanya_predikat_kelulusan
+  - action: utter_jawab_predikat_kelulusan
+  - action: utter_bantu_lagi
+  - user: |
+      tidak terimakasih
+    intent: selesai
+  - action: utter_terimakasih
+
+- story: User bertanya mengenai ketentuan stop out dilanjutkan ketentuan bagi mahasiswa pindahan, dilanjutkan hak mahasiswa, dilanjutkan peringatan dan sanksi, dilanjutkan kriteria predikat kelulusan
+  steps:
+  - user: |
+      halo
+    intent: salam
+  - action: utter_salam
+  - user: |
+      ketentuan stop out di unsri
+    intent: tanya_stop_out
+  - action: utter_jawab_stop_out  
+  - user: |
+      tidak
+    intent: selesai
+  - action: utter_bantu_lagi
+  - user: |
+      ketentuan bagi mahasiswa pindahan
+    intent: tanya_ketentuan_bagi_mahasiswa_pindahan
+  - action: utter_jawab_ketentuan_bagi_mahasiswa_pindahan
+  - action: utter_bantu_lagi
+  - user: |
+      hak mahasiswa unsri
+    intent: tanya_hak_mahasiswa
+  - action: utter_jawab_hak_mahasiswa
+  - action: utter_bantu_lagi
+  - user: |
+      peringatan dan sanksi bagi mahasiswa unsri
+    intent: tanya_peringatan_dan_sanksi
+  - action: utter_jawab_peringatan_dan_sanksi
+  - action: utter_bantu_lagi
+  - user: |
+      kriteria predikat kelulusan di unsri
+    intent: tanya_predikat_kelulusan
+  - action: utter_jawab_predikat_kelulusan
+  - action: utter_bantu_lagi
+  - user: |
+      tidak terimakasih
+    intent: selesai
+  - action: utter_terimakasih
+
+- story: User bertanya mengenai kriteria putus studi program doktor
+  steps:
+  - user: |
+      hai
+    intent: salam
+  - action: utter_salam
+  - user: |
+      kriteria putus studi program doktor
+    intent: tanya_kriteria_putus_studi_doktor
+  - action: utter_jawab_kriteria_putus_studi_doktor
+  - user: |
+      tidak
+    intent: selesai
+  - action: utter_terimakasih
+
+- story: User bertanya mengenai perpindahan mahasiswa dalam universitas sriwijaya
+  steps:
+  - user: |
+      halo
+    intent: salam
+  - action: utter_salam
+  - user: |
+      Apakah di unsri memungkinkan untuk pindah jurusan dalam satu kampus?
+    intent: tanya_pindah_di_dalam_unsri
+  - action: utter_jawab_pindah_di_dalam_unsri
+  - user: |
+      tidak
+    intent: selesai
+  - action: utter_terimakasih
+
+- story: User bertanya mengenai perpindahan mahasiswa perguruan tinggi lain ke universitas sriwijaya
+  steps:
+  - user: |
+      halo
+    intent: salam
+  - action: utter_salam
+  - user: |
+      tata cara perpindahan mahasiswa perguruan tinggi lain ke unsri
+    intent: tanya_pindah_pt_lain_ke_unsri
+  - action: utter_jawab_pindah_pt_lain_ke_unsri
+  - action: utter_bantu_lagi
+  - user: |
+      tidak terimakasih
+    intent: selesai
+  - action: utter_terimakasih
+
+- story: User bertanya mengenai kewajiban di universitas sriwijaya
+  steps:
+  - user: |
+      halo
+    intent: salam
+  - action: utter_salam
+  - user: |
+      kewajiban mahasiswa unsri
+    intent: tanya_kewajiban
+  - action: utter_jawab_kewajiban
+  - action: utter_bantu_lagi
+  - user: |
+      tidak terimakasih
+    intent: selesai
+  - action: utter_terimakasih
+
+- story: User bertanya mengenai persyaratan yudisium
+  steps:
+  - user: |
+      halo
+    intent: salam
+  - action: utter_salam
+  - user: |
+      syarat yudisium
+    intent: tanya_persyaratan_yudisium
+  - action: utter_jawab_persyaratan_yudisium
+  - action: utter_bantu_lagi
+  - user: |
+      tidak terimakasih
+    intent: selesai
+  - action: utter_terimakasih
+
+- story: User bertanya mengenai chatbot
+  steps:
+  - user: |
+      siapa kamu?
+    intent: bot_challenge
+  - action: utter_iamabot
+
+- story: User bertanya mengenai kriteria putus studi program doktor dilanjutkan perpindahan mahasiswa dalam universitas sriwijaya
+  steps:
+  - user: |
+      halo
+    intent: salam
+  - action: utter_salam
+  - user: |
+      Putus studi mahasiswa program doktor
+    intent: tanya_kriteria_putus_studi_doktor
+  - action: utter_jawab_kriteria_putus_studi_doktor
+  - user: |
+      tidak
+    intent: selesai
+  - action: utter_bantu_lagi
+  - user: |
+      Apakah di unsri memungkinkan untuk pindah jurusan dalam satu kampus?
+    intent: tanya_pindah_di_dalam_unsri
+  - action: utter_jawab_pindah_di_dalam_unsri
+  - action: utter_bantu_lagi
+  - user: |
+      tidak terimakasih
+    intent: selesai
+  - action: utter_terimakasih
+
+- story: User bertanya mengenai kriteria putus studi program doktor dilanjutkan perpindahan mahasiswa ptn lain ke unsri
+  steps:
+  - user: |
+      halo
+    intent: salam
+  - action: utter_salam
+  - user: |
+      Putus studi mahasiswa program doktor
+    intent: tanya_kriteria_putus_studi_doktor
+  - action: utter_jawab_kriteria_putus_studi_doktor
+  - user: |
+      tidak
+    intent: selesai
+  - action: utter_bantu_lagi
+  - user: |
+      tata cara perpindahan mahasiswa perguruan tinggi lain ke unsri
+    intent: tanya_pindah_pt_lain_ke_unsri
+  - action: utter_jawab_pindah_pt_lain_ke_unsri
+  - action: utter_bantu_lagi
+  - user: |
+      tidak terimakasih
+    intent: selesai
+  - action: utter_terimakasih
+
+- story: User bertanya mengenai kriteria putus studi program doktor dilanjutkan kewajiban
+  steps:
+  - user: |
+      halo
+    intent: salam
+  - action: utter_salam
+  - user: |
+      Putus studi mahasiswa program doktor
+    intent: tanya_kriteria_putus_studi_doktor
+  - action: utter_jawab_kriteria_putus_studi_doktor
+  - user: |
+      tidak
+    intent: selesai
+  - action: utter_bantu_lagi
+  - user: |
+      kewajiban mahasiswa unsri
+    intent: tanya_kewajiban
+  - action: utter_jawab_kewajiban
+  - action: utter_bantu_lagi
+  - user: |
+      tidak terimakasih
+    intent: selesai
+  - action: utter_terimakasih
+
+- story: User bertanya mengenai kriteria putus studi program doktor dilanjutkan persyaratan yudisium
+  steps:
+  - user: |
+      halo
+    intent: salam
+  - action: utter_salam
+  - user: |
+      Putus studi mahasiswa program doktor
+    intent: tanya_kriteria_putus_studi_doktor
+  - action: utter_jawab_kriteria_putus_studi_doktor
+  - user: |
+      tidak
+    intent: selesai
+  - action: utter_bantu_lagi
+  - user: |
+     syarat yudisium?
+    intent: tanya_persyaratan_yudisium
+  - action: utter_jawab_persyaratan_yudisium
+  - action: utter_bantu_lagi
+  - user: |
+      tidak terimakasih
+    intent: selesai
+  - action: utter_terimakasih
+
+- story: User bertanya mengenai perpindahan mahasiswa dalam universitas sriwijaya dilanjutkan dengan perpindahan mahasiswa ptn lain ke unsri
+  steps:
+  - user: |
+      halo
+    intent: salam
+  - action: utter_salam
+  - user: |
+      Apakah di unsri memungkinkan untuk pindah jurusan dalam satu kampus?
+    intent: tanya_pindah_di_dalam_unsri
+  - action: utter_jawab_pindah_di_dalam_unsri
+  - action: utter_bantu_lagi
+  - user: |
+      tata cara perpindahan mahasiswa perguruan tinggi lain ke unsri
+    intent: tanya_pindah_pt_lain_ke_unsri
+  - action: utter_jawab_pindah_pt_lain_ke_unsri
+  - action: utter_bantu_lagi
+  - user: |
+      tidak terimakasih
+    intent: selesai
+  - action: utter_terimakasih
+
+- story:  User bertanya mengenai perpindahan mahasiswa dalam universitas sriwijaya dilanjutkan dengan kewajiban
+  steps:
+  - user: |
+      halo
+    intent: salam
+  - user: |
+      Apakah di unsri memungkinkan untuk pindah jurusan dalam satu kampus?
+    intent: tanya_pindah_di_dalam_unsri
+  - action: utter_jawab_pindah_di_dalam_unsri
+  - action: utter_bantu_lagi
+  - user: |
+      kewajiban mahasiswa unsri
+    intent: tanya_kewajiban
+  - action: utter_jawab_kewajiban
+  - action: utter_bantu_lagi
+  - user: |
+      tidak terimakasih
+    intent: selesai
+  - action: utter_terimakasih
+
+- story: User bertanya mengenai perpindahan mahasiswa dalam universitas sriwijaya dilanjutkan dengan persyaratan yudisium
+  steps:
+  - user: |
+      halo
+    intent: salam
+  - action: utter_salam
+  - user: |
+      Apakah di unsri memungkinkan untuk pindah jurusan dalam satu kampus?
+    intent: tanya_pindah_di_dalam_unsri
+  - action: utter_jawab_pindah_di_dalam_unsri
+  - action: utter_bantu_lagi
+  - user: |
+      syarat yudisium
+    intent: tanya_persyaratan_yudisium
+  - action: utter_jawab_persyaratan_yudisium
+  - action: utter_bantu_lagi
+  - user: |
+      tidak terimakasih
+    intent: selesai
+  - action: utter_terimakasih
+
+- story: User bertanya mengenai perpindahan mahasiswa perguruan tinggi lain ke universitas sriwijaya dilanjutkan dengan kewajiban
+  steps:
+  - user: |
+      halo
+    intent: salam
+  - action: utter_salam
+  - user: |
+      tata cara perpindahan mahasiswa perguruan tinggi lain ke unsri
+    intent: tanya_pindah_pt_lain_ke_unsri
+  - action: utter_jawab_pindah_pt_lain_ke_unsri
+  - action: utter_bantu_lagi
+  - user: |
+      kewajiban mahasiswa unsri
+    intent: tanya_kewajiban
+  - action: utter_jawab_kewajiban
+  - action: utter_bantu_lagi
+  - user: |
+      tidak terimakasih
+    intent: selesai
+  - action: utter_terimakasih
+
+- story: User bertanya mengenai perpindahan mahasiswa perguruan tinggi lain ke universitas sriwijaya dilanjutkan dengan persyaratan yudisium
+  steps:
+  - user: |
+      halo
+    intent: salam
+  - action: utter_salam
+  - user: |
+      tata cara perpindahan mahasiswa perguruan tinggi lain ke unsri
+    intent: tanya_pindah_pt_lain_ke_unsri
+  - action: utter_jawab_pindah_pt_lain_ke_unsri
+  - action: utter_bantu_lagi
+  - user: |
+      syarat yudisium
+    intent: tanya_persyaratan_yudisium
+  - action: utter_jawab_persyaratan_yudisium
+  - action: utter_bantu_lagi
+  - user: |
+      tidak terimakasih
+    intent: selesai
+  - action: utter_terimakasih
+
+- story: User bertanya mengenai kewajiban dilanjutkan dengan persyaratan yudisium
+  steps:
+  - user: |
+      halo
+    intent: salam
+  - action: utter_salam
+  - user: |
+      kewajiban mahasiswa unsri
+    intent: tanya_kewajiban
+  - action: utter_jawab_kewajiban
+  - action: utter_bantu_lagi
+  - user: |
+      syarat yudisium
+    intent: tanya_persyaratan_yudisium
+  - action: utter_jawab_persyaratan_yudisium
+  - action: utter_bantu_lagi
+  - user: |
+      tidak terimakasih
+    intent: selesai
+  - action: utter_terimakasih
+
+- story: User bertanya mengenai kriteria putus studi program doktor dilanjutkan perpindahan mahasiswa dalam universitas sriwijaya,
+         dilanjutkan perpindahan mahasiswa ptn lain ke unsri, dilanjutkan kewajiban, dilanjutkan persyaratan yudisium
+  steps:
+  - user: |
+      halo
+    intent: salam
+  - action: utter_salam
+  - user: |
+      kriteria putus studi program doktor
+    intent: tanya_kriteria_putus_studi_doktor
+  - action: utter_jawab_kriteria_putus_studi_doktor
+  - user: |
+      tidak
+    intent: selesai
+  - action: utter_bantu_lagi
+  - user: |
+      Apakah di unsri memungkinkan untuk pindah jurusan dalam satu kampus?
+    intent: tanya_pindah_di_dalam_unsri
+  - action: utter_jawab_pindah_di_dalam_unsri
+  - action: utter_bantu_lagi
+  - user: |
+      tata cara perpindahan mahasiswa perguruan tinggi lain ke unsri
+    intent: tanya_pindah_pt_lain_ke_unsri
+  - action: utter_jawab_pindah_pt_lain_ke_unsri
+  - action: utter_bantu_lagi
+  - user: |
+      kewajiban mahasiswa unsri
+    intent: tanya_kewajiban
+  - action: utter_jawab_kewajiban
+  - action: utter_bantu_lagi
+  - user: |
+      syarat yudisium
+    intent: tanya_persyaratan_yudisium
+  - action: utter_jawab_persyaratan_yudisium
+  - action: utter_bantu_lagi
+  - user: |
+      tidak terimakasih
+    intent: selesai
+  - action: utter_terimakasih
